@@ -182,7 +182,7 @@ background-blend-mode: lighten, overlay, lighten, screen, normal;">
 	            </div>
 	        </div>
 	    </section>
-	    <!----end hero -->
+	
 	</div>
 </div>
 <footer class="text-blueGray-600 body-font">
@@ -205,20 +205,7 @@ background-blend-mode: lighten, overlay, lighten, screen, normal;">
 
   
   
-  <script>
-    const api_url = 'https://api.github.com/users/arya-null/repos';
-    async function getrepos(){
-      const response = await fetch(api_url);
-      const data = await response.JSON();
-      const { name, description, html_url} = data;
-      document.getElementById('card-name').textContent = name;
-      document.getElementById('card desp').textContent = description;
-      document.getElementById('card-link').hrefContent =;
-    
-    }
-    
-getrepos();
-  </script>
+  
   
 </body>
 </html>
