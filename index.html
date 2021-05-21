@@ -79,14 +79,40 @@ background-blend-mode: lighten, overlay, lighten, screen, normal;">
 	                          
 
 
-<div class="card">
+
+	<script>
+	function requestUserRepos(){
+    
+    // create new XMLHttpRequest object
+    const xhr = new XMLHttpRequest();
+    
+
+    const url = `https://api.github.com/users/arya-null/repos`;
+		xhr.open('GET', url, true);
+		
+		xhr.onload = function() {
+    
+       
+        const data = JSON.parse(this.response);
+        
+     
+        console.log(data);
+			
+			 for (let i in data) {
+				 
+             let li = document.createElement('li');
+				 li.classList.add('list-group-item')
+
+                
+                li.innerHTML = (`
+		<div class="card">
 	                                    <h2 id="card-title"class="mt-20 text-3xl font-black leading-none tracking-tighter text-black lowercase text-shadow-xl md:text-6xl">
-	                                      
+	                                      ${data[i].name}
 	                                    </h2>
 	                                    <p id="card-desp"class="py-4 text-4xl font-light leading-none tracking-tighter text-black lowercase text-shadow-xl md:text-3xl 2xl:text-4xl">
-	                                        
+	                                        ${data[i].description}
 	                                    </p>
-	                                   	 <a id="card-link"href="link" target="_blank"
+	                                   	 <a id="card-link"href="${data[i].html_url}" target="_blank"
 		                                        class="tracking-wide duration-500 ease-in-out rounded-full shadow-lg trnsition">
 		                                        <div
 		                                            class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mt-4 mb-5 text-black bg-white rounded-full shadow-xl hover:bg-white hover:text-black focus:shadow-none focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">
@@ -106,8 +132,20 @@ background-blend-mode: lighten, overlay, lighten, screen, normal;">
 
 	                                </div>
 	                            </div>
-	                            </div>
+	                            
 
+		`);
+				 ul.appendChild(li);
+        
+        }
+    
+}
+		xhr.send();
+    
+}
+	</script>
+						</div>
+						
 
 
 	                            <div class="flex flex-wrap py-8 md:flex-nowrap">
@@ -202,45 +240,7 @@ background-blend-mode: lighten, overlay, lighten, screen, normal;">
 <script src="https://unpkg.com/mailgo@0.11.2/dist/mailgo.dark.min.js"></script>
 
 
-	<script>
-	function requestUserRepos(){
-    
-    // create new XMLHttpRequest object
-    const xhr = new XMLHttpRequest();
-    
-
-    const url = `https://api.github.com/users/arya-null/repos`;
-		xhr.open('GET', url, true);
-		
-		xhr.onload = function() {
-    
-       
-        const data = JSON.parse(this.response);
-        
-     
-        console.log(data);
-			
-			 for (let i in data) {
-				 document.getElementById('card-title').textContent = data[i].name;
-				  document.getElementById('card-desp').textContent = data[i].description;
-				  document.getElementById('card-link').href= data[i].html_url;
-            console.log('Repo:', data[i].name);
-            
-     
-            console.log('Description:', data[i].description);
-       
-            console.log('URL:', data[i].html_url);
-            
-          
-            console.log('=========================');
-        
-        }
-    
-}
-		xhr.send();
-    
-}
-	</script>
+	
   
   
   
