@@ -202,7 +202,45 @@ background-blend-mode: lighten, overlay, lighten, screen, normal;">
 <script src="https://unpkg.com/mailgo@0.11.2/dist/mailgo.dark.min.js"></script>
 
 
+	<script>
+	function requestUserRepos(){
+    
+    // create new XMLHttpRequest object
+    const xhr = new XMLHttpRequest();
+    
 
+    const url = `https://api.github.com/users/arya-null/repos`;
+		xhr.open('GET', url, true);
+		
+		xhr.onload = function() {
+    
+       
+        const data = JSON.parse(this.response);
+        
+     
+        console.log(data);
+			
+			 for (let i in data) {
+				 document.getElementById('card-title').textContent = data[i].name;
+				  document.getElementById('card-desp').textContent = data[i].description;
+				  document.getElementById('card-link').href= data[i].html_url;
+            console.log('Repo:', data[i].name);
+            
+     
+            console.log('Description:', data[i].description);
+       
+            console.log('URL:', data[i].html_url);
+            
+          
+            console.log('=========================');
+        
+        }
+    
+}
+		xhr.send();
+    
+}
+	</script>
   
   
   
