@@ -80,39 +80,15 @@ background-blend-mode: lighten, overlay, lighten, screen, normal;">
 
 
 
-	<script>
-	function requestUserRepos(){
-    
-    // create new XMLHttpRequest object
-    const xhr = new XMLHttpRequest();
-    
-
-    const url = `https://api.github.com/users/arya-null/repos`;
-		xhr.open('GET', url, true);
-		
-		xhr.onload = function() {
-    
-       
-        const data = JSON.parse(this.response);
-        
-     
-        console.log(data);
-			
-			 for (let i in data) {
-				 
-             let li = document.createElement('li');
-				 li.classList.add('list-item')
-
-                
-                li.innerHTML = (`
+	
 		
 	                                    <h2 id="card-title"class="mt-20 text-3xl font-black leading-none tracking-tighter text-black lowercase text-shadow-xl md:text-6xl">
-	                                      ${data[i].name}
+	                                      news-calender
 	                                    </h2>
 	                                    <p id="card-desp"class="py-4 text-4xl font-light leading-none tracking-tighter text-black lowercase text-shadow-xl md:text-3xl 2xl:text-4xl">
-	                                        ${data[i].description}
+	                                        You can use this calender to search any news of any time, any date, any country, of any sort with this website. This is an open Source project made with Js and NewsAPI 
 	                                    </p>
-	                                   	 <a id="card-link"href="${data[i].html_url}" target="_blank"
+	                                   	 <a id="card-link"href="https://arya-null.github.io/news-calender" target="_blank"
 		                                        class="tracking-wide duration-500 ease-in-out rounded-full shadow-lg trnsition">
 		                                        <div
 		                                            class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mt-4 mb-5 text-black bg-white rounded-full shadow-xl hover:bg-white hover:text-black focus:shadow-none focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">
@@ -134,16 +110,7 @@ background-blend-mode: lighten, overlay, lighten, screen, normal;">
 	                            
 	                            
 
-		`);
-				 ul.appendChild(li);
-        
-        }
-    
-}
-		xhr.send();
-    
-}
-	</script>
+		
 						</div>
 						
 
