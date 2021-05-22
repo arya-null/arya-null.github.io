@@ -1,5 +1,5 @@
 # my-portfolio
-This is my personal portfolio website built with the GitHub API and tailwind. Take a look at it
+This is my personal portfolio website built with the GitHub API and tailwind Css. Take a look at it
 
 This website is built using these:
 
